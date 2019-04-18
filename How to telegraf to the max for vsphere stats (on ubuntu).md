@@ -139,13 +139,13 @@ We've done a lot so far; let's check the status.
   sudo systemctl status influxdb
 ```
 
-## optional - restart the `influxdb` service
+## Optional - Restart influxdb
 This not required, but if you make a config change you can always restart with the following:
 ```
   sudo systemctl restart influxdb
 ```
 
-## Install `telegraf`
+## Install telegraf
 Next, we install `telegraf` which is the app that collects all the datapoints for us. This is part of the influxdata `TICK` stack.
 ```
   sudo apt-get install telegraf
@@ -173,7 +173,7 @@ Optionally, create or copy the desired config file to `/etc/telegraf/telegraf.d/
   sudo nano  /etc/telegraf/telegraf.d/vsphere-stats.conf
 ```
 
-> Note: Using extra config location is optional.
+> Note: Using the extra config location is optional.
 
 ## Start telegraf
 Now we are ready to start the telegraf service. This will read in the vcenter name and login we provided to the configuration file previously.
@@ -181,13 +181,13 @@ Now we are ready to start the telegraf service. This will read in the vcenter na
   systemctl start telegraf
 ```
 
-## Optional - Install `cronograf`
+## Optional - Install cronograf
 The `cronograf` app can visualize like Grafana but will not be our primary in this write-up.  However, it is good for looking at the stats of your system that is running collections, etc.
 ```
   sudo apt-get install chronograf
 ```
 
-## Optional - Start `cronograf`
+## Optional - Start cronograf
 ```
   sudo systemctl start chronograf
 ```
@@ -249,7 +249,7 @@ Login with default of `admin` `admin`. You can optionally, click on `skip` when 
 ```
 
 ## Manual Steps from client - Install graphs
-You'll want the following chart IDs which can be downloaded from grafana.com by logging into your Grafana deployment using a browser and clicking `Import`; Next, simply enter each of the following Chart IDs to add these excellent community vSphere charts:
+You'll want the following chart IDs which can be downloaded right from your Grafana instance. Use a browser ot login to your deployment, and then click `Import`; Next, simply enter each of the following Chart IDs to add these excellent community vSphere charts:
 ```
   8159,8162,8165,8168
 ```
