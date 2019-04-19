@@ -21,7 +21,7 @@ Also this system has a second `.vmdk` consumed as a /data drive.
 
 You can optionally go with only 2 vCPU for smaller deployments. No additional disks are required, though may be desired for high performance deployments.
 
-If running on VMware vSphere, ideally you should add an additional VMware Paravirtual SCSI controller (i.e. SCSI 1:0) for your data drive. If going extreme high performance than `meta` would be SCSI 2:0 and so on.
+If running on VMware vSphere, ideally you should add an additional VMware Paravirtual SCSI controller (i.e. SCSI 1:0) for your data drive. If going extreme high performance, `meta` would be SCSI 2:0 and so on.
 
 Finally, use a vmxnet3 network adapter for best performance.
 
