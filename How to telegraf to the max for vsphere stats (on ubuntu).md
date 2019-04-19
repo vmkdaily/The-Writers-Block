@@ -7,12 +7,24 @@ In this write-up, we get Ubuntu Linux up and running with InfluxDB, Telegraf and
 ## About the TICK stack
 The `influxdata` repository gives us access to the entire `TICK` stack (`Telegraf`, `InfluxDB`, `Cronograf`, and `Kapacitor`). We will only use `Telegraf` and `InfluxDB` of that stack, but we also show installing `Cronograf` too since that gives us great insight into localhost (more on that later). The `k` of the stack is for `Kapacitor` (not used), which can monitor and alert; We will skip that one but check it out!
 
-## VMware KB
+
+## VMware KB Article
 Configure VC for proper stat collection before proceeding.
 
 ```
   https://kb.vmware.com/s/article/2107096
 ```
+
+## VMware vCenter Statsics Levels (optional)
+You can optionally change your 5 minute interval from the default of `1` to `2` to get more stat detail. This is a common requirement for monitoring prducts. See the following VMware document to learn more:
+```
+https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vcenterhost.doc/GUID-5D85751A-2CE8-4FD5-83C8-90A17060631E.html
+```
+
+## Example
+![vCenter Server Statistics Levels](https://github.com/vmkdaily/The-Writers-Block/blob/master/vCenter%20Server%20Statistics%20Levels.png)
+
+<br>
 
 ## System Info
 The system used for this is Ubuntu 16.04 Linux (Ubuntu 18.x is fine too) with 4 vCPU and 8GB RAM;
