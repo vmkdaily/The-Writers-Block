@@ -1,5 +1,5 @@
 
-#### How to telegraf to the max for vsphere stats (on ubuntu)
+# How to telegraf to the max for vsphere stats (on ubuntu)
 
 ## Introduction
 In this write-up, we get Ubuntu Linux up and running with InfluxDB, Telegraf and Grafana to collect and visualize VMware vSphere performance data.
@@ -27,15 +27,15 @@ https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vcenterhost.doc
 <br>
 
 ## System Info
-The system used for this is Ubuntu 16.04 Linux (Ubuntu 18.x is fine too) with 4 vCPU and 8GB RAM;
+The system used for this is Ubuntu 16.04 Linux (Ubuntu 18.x is fine too) with 4 vCPU and 8 GB RAM;
 
-Also this system has a second `.vmdk` consumed as a /data drive.
+Also this system has a second `.vmdk` consumed as a `/data` drive (optional).
 
 You can optionally go with only 2 vCPU for smaller deployments. No additional disks are required, though may be desired for high performance deployments.
 
-If running on VMware vSphere, ideally you should add an additional VMware Paravirtual SCSI controller (i.e. SCSI 1:0) for your data drive. If going extreme high performance, `meta` would be SCSI 2:0 and so on.
+If running on VMware vSphere, ideally you should add an additional VMware Paravirtual SCSI controller (i.e. `SCSI 1:0`) for your data drive. If going extreme high performance, `meta` would be `SCSI 2:0` and so on.
 
-Finally, use a vmxnet3 network adapter for best performance.
+Finally, use a `vmxnet3` network adapter for best performance. These are general recommendations; Feel free to adjust as desired.
 
 ## Credits
 ```
@@ -166,7 +166,7 @@ Next, we install `telegraf` which is the app that collects all the datapoints fo
 ## About the telegraf config file
 The telegraf app has a config file that comes fully loaded with all apps available, but has them commented out by default (expected).
 
-> Warning: If you were born and raised on PowerShell, the way they comment these config files is going to feel like a nightmare. Get yourself a zen audiobook and play that as needed.
+> Tip: You can also use our ready-made config file at [vsphere-stats.conf](https://github.com/vmkdaily/The-Writers-Block/blob/master/vsphere-stats.conf) (more on that later). 
 
 ## Configure telegraf
 We can use `vi` or `nano` to edit our selection.
@@ -177,13 +177,18 @@ We can use `vi` or `nano` to edit our selection.
 > Reference the telegraf vsphere github for details about the config file at https://github.com/influxdata/telegraf/blob/release-1.8/plugins/inputs/vsphere/README.md
 
 ## Optional - About Extra configuration files for telegraf
-This trick comes from our dashboard author https://twitter.com/jorgedlcruz; The beauty of this one is that we can choose not to edit the default config file at all; Instead, we can craft the file containing only the elements we want.
+This trick comes from community dashboard author https://twitter.com/jorgedlcruz; The beauty of this one is that we can choose not to edit the default config file (`/etc/telegraf/telegraf.conf`) at all; Instead, we can craft the file containing only the elements we want and place it at `/etc/telegraf/telegraf.d/<your file>.conf`.
 
 ## Extra config file location
 Optionally, create or copy the desired config file to `/etc/telegraf/telegraf.d/<your file>.conf`. You can create an empty file with `vi`, `touch` or similar, but we just use `nano`. Change your filename as desired.
 ```
   sudo nano  /etc/telegraf/telegraf.d/vsphere-stats.conf
 ```
+
+## Example Config
+See below for an example configuration that is ready to run (adjust vCenter name, etc). You could enhance this by gathering more device level information. You could also simplify it by not listing the stat types individually, which would get you all stats available.
+
+[vsphere-stats.conf](https://github.com/vmkdaily/The-Writers-Block/blob/master/vsphere-stats.conf)
 
 > Note: Using the extra config location is optional.
 
