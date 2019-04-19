@@ -194,8 +194,9 @@ The `cronograf` app can visualize like Grafana but will not be our primary in th
 
 ## Optional - Login to cronograf
 Open a web browser to your server by fqdn or using localhost. The cronograf app listens on port `8888` by default.
-
+```
   http://localhost:8888
+```
 
 > Tip: Find the monitor section to review your system stats. Observe that you can get additional stats for your system network interface by enabling a plugin (similar to the vsphere one we did earlier); The config file you would need to edit is `/etc/telegraf/telegraf.conf`, then restart the service with `systemctl restart telegraf`. Now, you are getting some excellent detail into `cronograf`.
 
@@ -245,11 +246,13 @@ By default, your grafana installation will serve up an `http` page for login. No
 ## Login to grafana
 Login with default of `admin` `admin`. You can optionally, click on `skip` when it prompts you to change it.
 ```
-  http://yourserver
+  http://yourserver:3000
 ```
 
+> The default port for Grafana is `3000`. YoU can optionally change that in the grafana config file, typically at `/etc/grafana/grafana.ini`. To determine your config file being used, `sudo systemctl status grafana-server` will show that detail.
+
 ## Manual Steps from client - Install graphs
-You'll want the following chart IDs which can be downloaded right from your Grafana instance. Use a browser ot login to your deployment, and then click `Import`; Next, simply enter each of the following Chart IDs to add these excellent community vSphere charts:
+You'll want the following chart IDs which can be downloaded right from your Grafana instance. Use a browser to login to your deployment, and then click `Import`; Next, simply enter each of the following Chart IDs to add these excellent community vSphere charts:
 ```
   8159,8162,8165,8168
 ```
