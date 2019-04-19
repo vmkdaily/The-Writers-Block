@@ -249,7 +249,7 @@ Login with default of `admin` `admin`. You can optionally, click on `skip` when 
   http://yourserver:3000
 ```
 
-> The default port for Grafana is `3000`. YoU can optionally change that in the grafana config file, typically at `/etc/grafana/grafana.ini`. To determine your config file being used, `sudo systemctl status grafana-server` will show that detail.
+> The default port for Grafana is `3000`. You can optionally change that in the grafana config file, typically at `/etc/grafana/grafana.ini`. To determine your config file location, `sudo systemctl status grafana-server`.
 
 ## Manual Steps from client - Install graphs
 You'll want the following chart IDs which can be downloaded right from your Grafana instance. Use a browser to login to your deployment, and then click `Import`; Next, simply enter each of the following Chart IDs to add these excellent community vSphere charts:
