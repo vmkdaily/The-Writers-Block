@@ -35,7 +35,7 @@ Finally, use a vmxnet3 network adapter for best performance.
 https://github.com/influxdata/telegraf/tree/release-1.8/plugins/inputs/vsphere
 ```
 ## Prerequisites
-Before starting, create a read-only user in `VMware vSphere vCenter Server`. This will be used by`telegraf` to collect performance stats. Later we will enter this value in plain text into the `telegraf` configuration file.
+Before starting, create a read-only user in `VMware vCenter Server`. This will be used by`telegraf` to collect performance stats. Later we will enter this value in plain text into the `telegraf` configuration file.
 
 > Warning: This solution uses plain text (see above). There are options you can pursue to be more secure such as using the vCenter Certificate and https for all communication. In this write-up, we do all clear text and http.
 
